@@ -1,0 +1,35 @@
+.rectangle {
+  width: 300px;
+  height: 400px;
+  background-image: radial-gradient(#b4ff59, #f9fd06);
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  color: black;
+  font-size: 56px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.button1 {
+  width: 100px;
+  height: 100px;
+  background-color: ghostwhite;
+  font-size: 56px;
+  border-radius: 12px;
+}
+
+.button2 {
+  width: 100px;
+  height: 100px;
+  background-color: ghostwhite;
+  font-size: 56px;
+  border-radius: 12px;
+}
