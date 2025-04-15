@@ -7,24 +7,37 @@ freeShippingMessage.textContent = " You have free shipping!";
 
 let count = 0;
 
-btnPlus.addEventListener("click", () => {
-  count++;
+function updateUI() {
   countDisplay.textContent = count;
 
   if (count >= 10 && !countDisplay.contains(freeShippingMessage)) {
-    countDisplay.appendChild(freeShippingMessage); // Add free shipping message
+    countDisplay.appendChild(freeShippingMessage);
+  } else if (count < 10 && countDisplay.contains(freeShippingMessage)) {
+    countDisplay.removeChild(freeShippingMessage);
   }
 
   if (count >= 20) {
     btnPlus.style.backgroundColor = "red";
+  } else {
+    btnPlus.style.backgroundColor = ""; 
   }
 
-    if (count < 20) {
-      btnPlus.style.backgroundColor = ""; // Reset background color when count is less than 20
-    }
+  btnMinus.disabled = count === 0;
+}
 
-     if (count > 0) {
-    btnMinus.disabled = false;
+btnPlus.addEventListener("click", () => {
+  count++;
+  updateUI();
+});
+
+btnMinus.addEventListener("click", () => {
+  if (count > 0) {
+    count--;
+    updateUI();
   }
-  
+});
+
+btnReset.addEventListener("click", () => {
+  count = 0;
+  updateUI();
 });
